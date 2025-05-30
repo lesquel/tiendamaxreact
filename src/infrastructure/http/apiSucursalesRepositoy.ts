@@ -1,4 +1,5 @@
 import type { Sucursal } from "../../domian/sucursales";
+import { environment } from "../../env";
 import type { SucursalesServices } from "../../ports/input/sucursales.services";
 
 export class ApiSucursalesRepositoy implements SucursalesServices {
@@ -6,7 +7,7 @@ export class ApiSucursalesRepositoy implements SucursalesServices {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = "http://localhost:8080";
+    this.baseUrl = environment.baseUrl;
   }
 
   async getSucursales(): Promise<Sucursal[]> {
